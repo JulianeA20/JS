@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 3</title>
+</head>
+
+<input type="text" id="item" placeholder="Informe a cor: ">
+<button onclick="procurar()">Procurar</button>
+
+<body>
+    <script>
+        let cores = ["Azul", "Amarelo", "Verde", "Vermelho", "Marrom"]
+        let encontrou = false
+
+        function procurar() {
+            let input = document.getElementById("item").value
+
+            for(let cor of cores){
+                if(input == cor) {
+                    encontrou = true
+                } 
+            }
+                
+            if(encontrou){
+                alert("Encontrado!")
+            }
+            else {
+                alert("Não foi encontrado")
+            }
+        }
+    </script>
+</body>
+</html>
