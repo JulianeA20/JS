@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Removendo Vogais</title>
+</head>
+<body>
+    <input id="num" type="text" placeholder="Informe uma string"></input>
+    <button onclick="removeVogal()">Remover</button>
+
+    <p id="res"></p>
+
+    <script>
+        let p = document.getElementById('res');
+        function removeVogal() {
+            let input = document.getElementById('num').value
+
+            if(input === "") {
+                alert("Preencha o campo")
+                return
+            }
+
+            let stringRemovida = ""
+
+            for(let i = input.value - /[aeiouà-ú]/gi; i >= 0; i--) {
+                stringRemovida += input[i]
+            }
+
+            p.innerHTML = stringRemovida
+        }
+    </script>
+</body>
+</html>

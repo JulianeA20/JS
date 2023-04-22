@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potência</title>
+</head>
+<body>
+    <input id="num" type="text" placeholder="Informe uma string"></input>
+    <button onclick="reverso()">Inverter</button>
+
+    <p id="res"></p>
+
+    <script>
+        let p = document.getElementById('res');
+        function reverso() {
+            let input = document.getElementById('num').value
+
+            if(input === "") {
+                alert("Preencha o campo")
+                return
+            }
+
+            let stringReversa = ""
+
+            for(let i = input.length - 1; i >= 0; i--) {
+                stringReversa += input[i]
+                // Mesmo loop de cima, só que de forma inversa
+            }
+
+            p.innerHTML = stringReversa
+        }
+    </script>
+</body>
+</html>
