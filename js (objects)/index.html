@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de atletas</title>
+    <style>
+        body {
+            background-color: rgb(221, 158, 253);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+        
+        form {
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0 0 5px gray;
+            font-weight: bold;
+            font-size: 1.4rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            width: 400px;
+            height: 300px;
+            border: 1px solid gray;
+            border-radius: 4px;
+        }
+
+        input {
+            border: none;
+            outline: none;
+            border-bottom: 1px solid black;
+            width: 85%;
+            padding: 5px;
+        }
+
+        button {
+            display: flex;
+            flex-direction: row;
+            padding: 0.5rem 1rem; 
+            border: none;
+            font-weight: bold;
+            background-color: rgb(155, 74, 255);
+            border-radius: 10px;
+            transition: ease-in-out;
+            box-shadow: 1px 1px 15px;
+        }
+
+        button:hover{
+            transition: ease-in-out;
+            transform: scale(1.2);
+        }
+
+        button:active {
+            background-color: rgb(213, 177, 247);
+            
+        }
+
+        table, td, th {
+            background-color: aliceblue;
+            border: 1px;
+            border-radius: 10px;
+            border-collapse: collapse;
+            margin: 0 auto;
+            padding: 2vh;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Cadastro de Atletas</h1>
+    <form>
+        <label for="name">Digite o nome do atleta</label>
+        <input id="nome" type="text" />
+        <label for="text">Informe o esporte praticado</label>
+        <input id="esporte" type="text" />
+
+        <button type="button" onclick="cadastro()">Cadastre-se</button>
+        <button type="reset">Limpar</button>
+    </form>
+
+    <div>
+        <button onclick="atletasSalvos()">Ver usuarios salvos</button>
+    </div>
+
+    <table id="atletas_salvos">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Esporte Praticado</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    
+
+    <script src="./objeto.js"></script>
+</body>
+</html>
