@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja</title>
+    <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+    
+    
+        body {
+          padding: 2rem;
+          background-color: coral;
+          display: flex;
+          justify-content: center;
+          gap: 3rem;
+        }
+
+        .mostrador_desconto {
+            position: fixed;
+            display: inline-block;
+            width: 120%;
+            height: 70px;
+            padding: 20px;
+            margin: 0;
+            top: 0;
+            background-color: floralwhite;
+            color: rgb(0, 0, 0);
+            text-align: center;
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+        }
+    
+        .produtos {
+          width: 40%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+        }
+    
+        .produto {
+          width: 90%;
+          display: flex;
+          align-items: center;
+          padding: 1rem;
+          background-color: rgb(252, 90, 31);
+          font-size: 1.25rem;
+          gap: 1rem;
+          border-radius: 5px;
+          margin-top: 12%;
+        }
+    
+        .filtros {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+          margin-top: 50%;
+        }
+    
+        .filtros div span {
+          font-size: 1.1rem;
+          font-weight: 700;
+        }
+        
+        p {
+          font-size: 2rem;
+          font-weight: 700;
+          text-align: center;
+        }
+        
+        .filtros button {
+          padding: .5rem;
+          border-radius: 5px;
+          width: 50%;
+        }
+    
+    form {
+          display: none;
+        }
+    
+      </style>
+    </head>
+    <body>
+        <div class="mostrador_desconto">
+            <h1>Desconto em 20% ao final da compra!</h1>
+        </div>
+        <div class="query">
+            <div class="filtros">
+                <div>
+                <span>Filtre por:</span>
+                <label>
+                    <input type="checkbox" value="perecivel" name="category">
+                    Perecivel
+                </label>
+                <label>
+                    <input type="checkbox" value="nao_perecivel" name="category">
+                    Não perecivel
+                </label>
+                </div>
+                <p>Total das compras: R$ <span id="price">0.00</span></p>
+                <button id="desconto">Aplicar desconto</button>
+            
+            <button onclick="cadastrarProdutos()">Cadastrar produtos</button>
+            
+                <form>
+                <div>
+                    <label for="nome_produto">Nome</label>
+                    <input id="nome_produto" type="text" />
+                </div>
+                <div>
+                    <label for="preco_produto">Preço</label>
+                    <input id="preco_produto" type="number" step="0.01"/>
+                </div>
+                <label>
+                    Categoria
+                    <select id="categoria_produto">
+                    <option value="">Selecione</option>
+                    <option value="perecivel">Perecivel</option>
+                    <option value="nao_perecivel">Não perecivel</option>
+                    </select>
+                </label>
+                </form>
+            </div>
+        </div>
+            <div class="produtos"></div>
+
+            <!-- <select>
+                    <option value="perecivel"></option>
+                </select> 
+                você vai captar o valor do select como um input , "select.value"
+                Para isso, todos os options precisam ter values presentes
+                
+                produtos = produtos.map()
+                você pode chamar um map em cima de uma variavel já existente
+                e substituir o array criado originalmente pelo array modificado
+                -->
+        
+
+      <script src="products.js"></script>
+    </body>
+</html>
