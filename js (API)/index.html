@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revisão API JavaScript</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@300&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            gap: 50px;
+            background-color: rgb(226, 214, 43);
+        }
+
+        header {
+            background-image: url(assets/entregador-correios.png);
+            
+        }
+
+        h1 {
+            font-family: 'Yanone Kaffeesatz', sans-serif;        
+        }
+
+        input {
+            padding: 10px;
+            width: 200px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            color: black;
+        }
+
+        button {
+            padding: 10px;
+            border: none;
+            background-color: rgb(19, 94, 255);
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+
+        button:hover {
+            background-color: brown;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header></header>
+
+    <h1>Consulte seu CEP aqui</h1>
+
+    <div>
+        <input type="number" placeholder="Digite seu cep">
+
+        <button onclick="consultarCEP()">
+            Consultar
+        </button>
+    </div>
+    
+    <script>
+        const consultarCEP = () => {
+            const cep = document.querySelector("input").value //Apenas o valor do input
+            const body = document.querySelector("body")  //A tag inteira
+        
+            try {
+               if (cep === "") {
+                    alert("Digite algum valor")
+                } else {  
+                    // consumir API JavaScript
+                    fetch(`https://viacep.com.br/ws/${cep}/json`)
+                    .then(resposta => {
+                        return resposta.json()
+                    })
+                    .then(dados => {
+                        const div = document.createElement('div')                      
+                        const logradouro = document.createElement('p')
+                        const bairro = document.createElement('p')
+                        const cidade = document.createElement('p')
+                        const uf = document.createElement('p')
+
+                        bairro.innerHTML = "Bairro: " + dados.bairro
+                        cidade.innerHTML = "Cidade: " + dados.localidade
+                        logradouro.innerHTML = "Logradouro: " + dados.logradouro
+                        uf.innerHTML = "UF: " + dados.uf
+
+                        div.appendChild(logradouro)
+                        div.appendChild(bairro)
+                        div.appendChild(cidade)
+                        div.appendChild(uf)
+
+                        body.appendChild(div)
+                    })
+                } 
+            }  catch(err) {
+                alert("CEP inválido")
+            }
+        }
+    </script>
+</body>
+</html>
